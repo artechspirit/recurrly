@@ -1,18 +1,19 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 const SignIn = () => {
+  const goToHome = () => {
+    router.replace("/");
+  };
+
   return (
     <View>
       <Text>SignIn</Text>
       <Link href={"/(auth)/sign-up"}>Create Account</Link>
-      <Link
-        href={"/(tabs)/subscriptions/spotify"}
-        className="mt-4 rounded bg-primary text-white p-4"
-      >
-        Spotify Subscriptions
-      </Link>
+      <TouchableOpacity onPress={goToHome}>
+        <Text>Go to Home</Text>
+      </TouchableOpacity>
     </View>
   );
 };
